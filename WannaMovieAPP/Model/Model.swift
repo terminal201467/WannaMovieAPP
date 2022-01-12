@@ -78,7 +78,7 @@ struct MovieDetails {
 }
 
 //MARK:-TVStruct
-struct TVDetail {
+struct TVDetails {
     let backdrop_path:String
     let created_by:[CreateInfo]
     
@@ -170,3 +170,5 @@ struct Country {
     let iso_3166_1:String
     let name:String
 }
+
+

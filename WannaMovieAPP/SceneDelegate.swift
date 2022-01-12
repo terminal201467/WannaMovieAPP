@@ -15,8 +15,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let setWindow = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: setWindow)
-        self.window?.rootViewController = ViewController()
+        let tabBar = UITabBarController()
+        self.window?.rootViewController = tabBar
         self.window?.makeKeyAndVisible()
+        
+        tabBar.tabBar.barTintColor = .white
+        tabBar.selectedIndex = 0
+        let homeViewController = UINavigationController(rootViewController: HomePageViewController())
+        let suggestViewController = UINavigationController(rootViewController: SuggestViewController())
+        let commentViewController = UINavigationController(rootViewController: CommentViewController())
+        
+        homeViewController.tabBarItem = UITabBarItem(title:"HomePage", image: UIImage(named: "house"), selectedImage: UIImage(named: "house.fill"))
+        suggestViewController.tabBarItem = UITabBarItem(title:"推薦電影", image: UIImage(named: "film"), selectedImage: UIImage(named:"film.fill"))
+        commentViewController.tabBarItem = UITabBarItem(title: "電影評論", image: UIImage(named: "text.bubble"), selectedImage:UIImage(named:"text.bubble.fill"))
+        tabBar.viewControllers = [homeViewController,suggestViewController,commentViewController]
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
