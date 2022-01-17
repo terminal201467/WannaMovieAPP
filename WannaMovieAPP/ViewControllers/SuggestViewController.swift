@@ -19,7 +19,4 @@ class SuggestViewController: UIViewController {
         
         
     }
-
-    
-
 }

@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let setWindow = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: setWindow)
@@ -20,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.makeKeyAndVisible()
         
         tabBar.tabBar.barTintColor = .white
+        tabBar.tabBar.tintColor = .black
         tabBar.selectedIndex = 0
         let homeViewController = UINavigationController(rootViewController: HomePageViewController())
         let suggestViewController = UINavigationController(rootViewController: SuggestViewController())

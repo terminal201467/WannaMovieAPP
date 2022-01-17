@@ -1,13 +1,13 @@
 //
-//  HomeView.swift
+//  SearchResultView.swift
 //  WannaMovieAPP
 //
-//  Created by Jhen Mu on 2022/1/12.
+//  Created by Jhen Mu on 2022/1/14.
 //
 
 import UIKit
 
-class HomeView: UIView {
+class SearchResultView: UIView {
 
     /*
     // Only override draw() if you perform custom drawing.
