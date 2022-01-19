@@ -12,7 +12,7 @@ class HomePageView: UIView {
 
     let tableView:UITableView = {
        let tableView = UITableView()
-        tableView.register(homePageTableViewCell.self, forCellReuseIdentifier: homePageTableViewCell.reuseIdentifier)
+        tableView.register(HomePageTableViewCell.self, forCellReuseIdentifier: HomePageTableViewCell.reuseIdentifier)
         tableView.allowsSelection = true
         tableView.estimatedRowHeight = 200
         tableView.separatorStyle = .singleLine
@@ -34,7 +34,5 @@ class HomePageView: UIView {
         tableView.snp.makeConstraints { mask in
             mask.edges.equalToSuperview()
         }
-        
     }
-    
 }

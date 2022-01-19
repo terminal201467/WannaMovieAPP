@@ -18,12 +18,12 @@ class MovieAPI{
     }
     
     
-//    private func buildURL(url:String)->URLRequest{
-//        var request = URLRequest(url: url)
-//        
-//        
-//        
-//    }
+    private func buildURL(url:String)->URLRequest{
+        var request = URLRequest(url: url)
+        
+        
+        
+    }
     
     
     

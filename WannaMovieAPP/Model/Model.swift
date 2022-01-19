@@ -172,3 +172,17 @@ struct Country {
 }
 
 
+
+enum HomePageSection:Int,CaseIterable{
+    case movie = 0,film,collection
+    var text:String{
+        switch self {
+        case .movie:
+            return "近期電影"
+        case .film:
+            return "近期影集"
+        case .collection:
+            return "推薦系列電影"
+        }
+    }
+}

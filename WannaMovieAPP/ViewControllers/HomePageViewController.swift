@@ -7,12 +7,16 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController{
+class HomePageViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+
+    
     
     //MARK:-Properties
     let searchViewController = UISearchController(searchResultsController:SearchResultViewController())
     
     let homeView = HomePageView()
+    
+    let sections = HomePageSection.allCases
     
     //MARK:LifeCycle
     override func loadView() {
@@ -71,23 +75,52 @@ class HomePageViewController: UIViewController{
 
 //MARK:-extensionForTableViewSettings
 extension HomePageViewController:UITableViewDelegate,UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = sections[section]
+        switch section{
+        case .movie:
+            return section.text
+        case .film:
+            return section.text
+        case .collection:
+            return section.text
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        return cell
+        let homeSection = sections[indexPath.section]
+        switch homeSection {
+        case .movie:
+            let movieCell = tableView.dequeueReusableCell(withIdentifier: HomePageTableViewCell.reuseIdentifier, for: indexPath) as! HomePageTableViewCell
+            movieCell.collectionView.delegate = self
+            movieCell.collectionView.dataSource = self
+            
+            return movieCell
+        case .film:
+            let filmCell = tableView.dequeueReusableCell(withIdentifier: HomePageTableViewCell.reuseIdentifier, for: indexPath) as! HomePageTableViewCell
+            filmCell.collectionView.delegate = self
+            filmCell.collectionView.dataSource = self
+            
+            return filmCell
+            
+        case .collection:
+            let collectionCell = tableView.dequeueReusableCell(withIdentifier: HomePageTableViewCell.reuseIdentifier, for: indexPath) as! HomePageTableViewCell
+            collectionCell.collectionView.delegate = self
+            collectionCell.collectionView.dataSource = self
+            
+            return collectionCell
+        }
     }
-    
-    
-    
 }
 
 //MARK:-extensionForSearchings
 extension HomePageViewController:UISearchResultsUpdating,UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
-        <#code#>
+        
     }
 }
